@@ -13,6 +13,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.Assert.assertNotNull;
+
 /**
  * All rights reserved.
  * Copyright (c) NIKE, Inc. 2016
@@ -34,7 +36,7 @@ public class ObjectAggregatorTest {
     @Test
     public void sendMessageToRouteTest() throws Exception {
         // Change the values in the /resources/application.properties
-        spawnObjectsRouteProducer.requestBody(null);
+        spawnObjectsRouteProducer.sendBody(null);
         // Wait a long time, because this could take a while
         TimeUnit.SECONDS.sleep(30);
         // Check the console, yo
