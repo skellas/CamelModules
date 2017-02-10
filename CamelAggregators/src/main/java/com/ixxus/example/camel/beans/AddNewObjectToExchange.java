@@ -11,7 +11,7 @@ import java.util.Random;
 
 /**
  * All rights reserved.
- * Copyright (c) NIKE, Inc. 2016
+ * Copyright (c) Ixxus Ltd. 2017
  * <p>
  *
  * @author skellas, Ixxus Ltd.
