@@ -5,9 +5,10 @@
 
     <process id="ActivitiWorkflowSample" name="Activiti Workflow Sample" isExecutable="true">
         <startEvent id="startWorkflow" name="Start Workflow"/>
-        <sequenceFlow sourceRef="startWorkflow" targetRef="step1"></sequenceFlow>
-        <sequenceFlow sourceRef="step1" targetRef="step2"></sequenceFlow>
+        <sequenceFlow sourceRef="startWorkflow" targetRef="step1"/>
+        <sequenceFlow sourceRef="step1" targetRef="step2"/>
         <sequenceFlow sourceRef="step2" targetRef="step3"/>
+        <sequenceFlow sourceRef="step3" targetRef="step2Completed"/>
         <sequenceFlow sourceRef="step2Completed" targetRef="end"/>
 
         <serviceTask id="step1" name="Step 1 - Camel Sync Call" activiti:type="camel"/>
