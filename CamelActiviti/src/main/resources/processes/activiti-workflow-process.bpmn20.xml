@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:activiti="http://activiti.org/bpmn"
+             typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath"
+             targetNamespace="ActivitiWorkflowSample">
+
+    <process id="ActivitiWorkflowSample" name="Activiti Workflow Sample" isExecutable="true">
+        <startEvent id="startWorkflow" name="Start Workflow"/>
+        <sequenceFlow sourceRef="startWorkflow" targetRef="step1"></sequenceFlow>
+        <sequenceFlow sourceRef="step1" targetRef="step2"></sequenceFlow>
+        <sequenceFlow sourceRef="step2" targetRef="step3"/>
+        <sequenceFlow sourceRef="step2Completed" targetRef="end"/>
+
+        <serviceTask id="step1" name="Step 1 - Camel Sync Call" activiti:type="camel"/>
+
+        <serviceTask id="step2" name="Step 2 - Camel Async Call" activiti:type="camel" activiti:async="true"/>
+
+        <serviceTask id="step3" name="Step 3 - Camel Sync Call" activiti:type="camel"/>
+
+        <receiveTask id="step2Completed" name="Step 2 Callback Listener"/>
+        <endEvent id="end" name="End Workflow"/>
+    </process>
+</definitions>
